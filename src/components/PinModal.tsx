@@ -56,7 +56,6 @@ export function PinModal({ isOpen, onClose, onSuccess }: PinModalProps) {
   const [showSettings, setShowSettings] = useState(false)
   const [isChangingPin, setIsChangingPin] = useState(false)
   const [newPin, setNewPin] = useState('')
-  const [confirmPin, setConfirmPin] = useState('')
   const [changePinStep, setChangePinStep] = useState<'current' | 'new' | 'confirm'>('current')
   const [changePinError, setChangePinError] = useState('')
   const settingsRef = useRef<HTMLDivElement>(null)
@@ -82,7 +81,7 @@ export function PinModal({ isOpen, onClose, onSuccess }: PinModalProps) {
 
   const handleAnimationClick = () => {
     const randomIndex = Math.floor(Math.random() * angryCats.length)
-    setCurrentAnimation(angryCats[randomIndex])
+    setCurrentAnimation(angryCats[randomIndex] as any)
   }
 
   const handleSubmit = async () => {
@@ -232,7 +231,6 @@ export function PinModal({ isOpen, onClose, onSuccess }: PinModalProps) {
                   setChangePinStep('current')
                   setPin('')
                   setNewPin('')
-                  setConfirmPin('')
                   setChangePinError('')
                 }}
                 className="p-1.5 rounded-full bg-pink-500 hover:bg-pink-600 text-white transition-colors"
