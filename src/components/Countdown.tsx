@@ -1,8 +1,17 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
+interface TimeLeft {
+  years: number
+  months: number
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+}
+
 export function Countdown() {
-  const [timeLeft, setTimeLeft] = useState({
+  const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     years: 0,
     months: 0,
     days: 0,
