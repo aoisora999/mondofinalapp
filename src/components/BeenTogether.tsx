@@ -27,8 +27,6 @@ const getCatAnimation = (num: number) => {
 }
 
 export function BeenTogether() {
-  const [leftCatNum, setLeftCatNum] = useState(1)
-  const [rightCatNum, setRightCatNum] = useState(2)
   const [leftCatAnimation, setLeftCatAnimation] = useState(cuteCat1)
   const [rightCatAnimation, setRightCatAnimation] = useState(cuteCat2)
   const [timeElapsed, setTimeElapsed] = useState({
@@ -71,10 +69,8 @@ export function BeenTogether() {
     const maxCats = Object.keys(catAnimations).length
     const randomNum = Math.floor(Math.random() * maxCats) + 1 // Random number between 1 and number of available cats
     if (side === 'left') {
-      setLeftCatNum(randomNum)
       loadCatAnimation(randomNum, 'left')
     } else {
-      setRightCatNum(randomNum)
       loadCatAnimation(randomNum, 'right')
     }
   }
@@ -101,15 +97,6 @@ export function BeenTogether() {
 
     return () => clearInterval(timer)
   }, [])
-
-  const timeBlocks = [
-    { label: 'Years', value: timeElapsed.years },
-    { label: 'Months', value: timeElapsed.months },
-    { label: 'Days', value: timeElapsed.days },
-    { label: 'Hours', value: timeElapsed.hours },
-    { label: 'Minutes', value: timeElapsed.minutes },
-    { label: 'Seconds', value: timeElapsed.seconds }
-  ]
 
   return (
     <div className="max-w-3xl mx-auto h-full flex items-center px-4 sm:px-6">
