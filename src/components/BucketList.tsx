@@ -53,7 +53,7 @@ export function BucketList() {
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [selectedItem])
 
-  const bind = useLongPress((event, { context }) => {
+  const bind = useLongPress((_, { context }) => {
     const itemId = context as string
     setSelectedItem(itemId)
   }, {
